@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { calculateLighterColor, calculateDarkerColor } from '$lib/utils/colorUtils';
+    
     export let width = 'auto';
     export let height = 'auto';
     export let onClick = () => {};
@@ -8,35 +10,6 @@
     // Calculate lighter and darker stroke colors based on the base color
     $: lightStrokeColor = calculateLighterColor(color);
     $: darkStrokeColor = calculateDarkerColor(color);
-
-    // Function to lighten a color (for top/left edges)
-    function calculateLighterColor(hexColor: string): string {
-        return adjustColorBrightness(hexColor, 1.2); // 20% lighter
-    }
-
-    // Function to darken a color (for bottom/right edges)
-    function calculateDarkerColor(hexColor: string): string {
-        return adjustColorBrightness(hexColor, 0.6); // 40% darker
-    }
-
-    // Helper function to adjust color brightness
-    function adjustColorBrightness(hexColor: string, factor: number): string {
-        // Remove # if present
-        hexColor = hexColor.replace('#', '');
-        
-        // Parse the hex color
-        const r = parseInt(hexColor.substring(0, 2), 16);
-        const g = parseInt(hexColor.substring(2, 4), 16);
-        const b = parseInt(hexColor.substring(4, 6), 16);
-        
-        // Adjust brightness
-        let newR = Math.min(255, Math.round(r * factor));
-        let newG = Math.min(255, Math.round(g * factor));
-        let newB = Math.min(255, Math.round(b * factor));
-        
-        // Convert back to hex
-        return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
-    }
 </script>
 
 <button 
