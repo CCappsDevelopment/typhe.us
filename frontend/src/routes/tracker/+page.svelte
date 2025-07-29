@@ -2,6 +2,7 @@
 	import RetroButton from '$lib/components/tracker/RetroButton.svelte';
 	import RetroButtonGroup from '$lib/components/tracker/RetroButtonGroup.svelte';
 	import TrackerWindow from '$lib/components/tracker/TrackerWindow.svelte';
+	import TrackerGroup from '$lib/components/tracker/TrackerGroup.svelte';
 </script>
 
 <div
@@ -11,11 +12,19 @@
 		<h1 class="mb-6 text-center text-3xl font-bold">Music Tracker</h1>
 
 		<div class="tracker-interface">
-            <!-- Tracker Window Proof of Concept -->
+            <!-- 4-Wide Tracker Group -->
             <div class="section mb-8">
-                <h2 class="mb-4 text-xl font-semibold">Tracker Window</h2>
+                <h2 class="mb-4 text-xl font-semibold">4-Wide Tracker Group</h2>
                 <div class="bg-[#1A1E2A] p-6 rounded flex justify-center">
-                    <TrackerWindow trackNumber={1} width={320} height={400} />
+                    <TrackerGroup trackerCount={4} trackerNumbers={[1, 2, 3, 4]} width={256} height={400} />
+                </div>
+            </div>
+            
+            <!-- Single Tracker Window (for comparison) -->
+            <div class="section mb-8">
+                <h2 class="mb-4 text-xl font-semibold">Single Tracker Window</h2>
+                <div class="bg-[#1A1E2A] p-6 rounded flex justify-center">
+                    <TrackerWindow trackNumber={1} width={256} height={400} />
                 </div>
             </div>
         
@@ -62,7 +71,7 @@
 <style>
     .tracker-interface {
         width: 100%;
-        max-width: 800px;
+        max-width: 1600px; /* Increased to accommodate 4-wide tracker group */
         margin: 0 auto;
     }
     
