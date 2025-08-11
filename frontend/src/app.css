@@ -1,3 +1,10 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&display=swap');
+
+@font-face {
+  font-family: 'Fontstuck';
+  src: url('/fonts/fontstuck.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  /* Optional: Unicode range if needed */
+}

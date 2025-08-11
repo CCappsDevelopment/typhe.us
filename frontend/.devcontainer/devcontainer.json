@@ -1,0 +1,20 @@
+{
+    "name": "Frontend Dev",
+    "dockerComposeFile": ["../../docker-compose.yml"],
+    "service": "frontend",
+    "workspaceFolder": "/app",
+    "forwardPorts": [4173, 5173],
+    "shutdownAction": "none",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "github.copilot",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "rust-lang.rust-analyzer",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
+

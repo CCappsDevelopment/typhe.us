@@ -1,0 +1,15 @@
+{
+  "name": "tracker-dsp",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "tracker_dsp_bg.wasm",
+    "tracker_dsp.js",
+    "tracker_dsp.d.ts"
+  ],
+  "main": "tracker_dsp.js",
+  "types": "tracker_dsp.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

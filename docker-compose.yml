@@ -1,0 +1,42 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    image: typheus-frontend
+    ports:
+      - "4173:4173"
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+
+  backend:
+    build:
+      context: ./backend
+    image: typheus-backend
+    ports:
+      - "4000:3000"
+    environment:
+      EXAMPLE: "placeholder"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/src
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: typheus
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
