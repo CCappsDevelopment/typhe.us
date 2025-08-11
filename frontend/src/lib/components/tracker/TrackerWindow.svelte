@@ -325,13 +325,14 @@
     
     .dot-group {
         display: flex;
-        gap: 6px;
+        gap: 60px;
         margin: 0 4px;
     }
     
     .dot {
         color: var(--dot-color);
         font-size: 12px;
+        font-family: 'Bytesized', 'Fontstuck', monospace;
     }
     
     .scrollbar-container {
