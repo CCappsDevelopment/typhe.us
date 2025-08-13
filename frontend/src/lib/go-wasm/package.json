@@ -1,0 +1,15 @@
+{
+  "name": "go_engine",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "go_engine_bg.wasm",
+    "go_engine.js",
+    "go_engine.d.ts"
+  ],
+  "main": "go_engine.js",
+  "types": "go_engine.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

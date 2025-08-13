@@ -36,3 +36,18 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Go rules engine (Rust → WASM)
+
+Build and copy the Rust Go engine into the Svelte app:
+
+```
+npm run go:wasm
+```
+
+Then start dev and open the Go page:
+
+```
+npm run dev
+# open /go
+```

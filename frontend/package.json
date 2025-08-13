@@ -4,15 +4,18 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint .",
-		"wasm:copy": "cp -r ./tracker-dsp/pkg/* ./src/lib/tracker-wasm/"
+		"dev": "vite dev # start the Vite dev server",
+		"build": "vite build # build the production bundle",
+		"preview": "vite preview # preview the production build locally",
+		"prepare": "svelte-kit sync || echo '' # generate SvelteKit types (pnpm/yarn hook)",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json # typecheck the project",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch # typecheck in watch mode",
+		"format": "prettier --write . # format files with Prettier",
+		"lint": "prettier --check . && eslint . # run Prettier check then ESLint",
+		"tracker:copy": "cp -r ./tracker-dsp/pkg/* ./src/lib/tracker-wasm/ # copy tracker DSP wasm artifacts into app",
+		"go:build": "cd go-engine && wasm-pack build --target web --out-dir pkg --release # build Rust Go engine to wasm pkg/",
+		"go:copy": "rm -rf ./src/lib/go-wasm && mkdir -p ./src/lib/go-wasm && cp go-engine/pkg/* ./src/lib/go-wasm/ # copy Go wasm artifacts into app",
+		"go:wasm": "npm run go:build && npm run go:copy # rebuild and sync Go wasm into the app"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
